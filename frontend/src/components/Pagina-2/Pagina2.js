@@ -16,12 +16,12 @@ export default class Pagina2 extends React.Component {
    */
   componentDidMount() {
     
-    const url = " http://localhost:3000/planta/f/tpe?";
+    const url = "/planta/f/tpe?";
 
     if (this.props.match) {
       try {
         if (this.props.match.path === "/search/:departamento") {
-          const urlDepto = "http://localhost:3000/planta/departamento/";
+          const urlDepto = "/planta/departamento/";
           fetch(urlDepto + this.props.match.params.departamento + "?num_pagina=2&cantidad=2")
             .then(res => {
               return res.json();
