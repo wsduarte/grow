@@ -1,0 +1,807 @@
+{
+	"info": {
+		"_postman_id": "02867ee3-5fc0-46c1-ba4c-3eda39b9f76e",
+		"name": "Cultivos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "planta",
+			"item": [
+				{
+					"name": "Crear planta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f02fbbfe-9891-4f24-be78-871ea0c91c83",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.environment.set(\"id\", pm.response.json()._id);",
+									"pm.environment.set(\"nombre\", pm.response.json().nombre);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\":\"Katherine\",\n\t\"sinonimos\":\"Avicennia germinans var. guayaquilensis (Kunth) Moldenke, Avicennia nitida Jacq.\",\n\t\"habito\":\"Arbusto, Arbolito, Árbol\",\n\t\"origen\":\"Nativa\",\n\t\"estado_de_conservacion\":\"Preocupación Menor\",\n\t\"regiones_biogeograficas\":\"Llanura del Caribe, Pacífico\",\n\t\"elevacion_maxima\":100,\n\t\"elevacion_minima\":0,\n\t\"departamentos\":\"Antioquia, Atlántico, Bolívar, Chocó, La Guajira, Magdalena, Nariño, San Andrés, Providencia y Santa Catalina, Sucre, Valle\",\n\t\"distribucion_global\":\"\\\"S Estados Unidos a Colombia, Venezuela, Guayanas, Ecuador, Perú, Brasil\",\n\t\"temperatura\":{\"min\":11,\"max\":28.5},\n\t\"presipitacion\":{\"min\":608,\"max\":2744}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/planta",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta"
+							]
+						},
+						"description": "Agrega una nueva plata con las caracteristicas de cultivo"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc598d8c-6155-4686-ad0a-3d0d4d3308b0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.nombre).to.eql(\"Katherine\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"{{id}}"
+							]
+						},
+						"description": "Obtiene la información de la planta de acuerdo a su identificador"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por id vacio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc598d8c-6155-4686-ad0a-3d0d4d3308b0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"{{id}}"
+							]
+						},
+						"description": "Obtiene la información de la planta de acuerdo a su identificador"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar planta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80477a8a-3e1c-488a-8607-08c54f731ebc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\":\"Aromatica\",\n\t\"sinonimos\":\"Avicennia germinans var. guayaquilensis (Kunth) Moldenke, Avicennia nitida Jacq.\",\n\t\"habito\":\"Arbusto, Arbolito, Árbol\",\n\t\"origen\":\"Nativa\",\n\t\"estado_de_conservacion\":\"Preocupación Menor\",\n\t\"regiones_biogeograficas\":\"Llanura del Caribe, Pacífico\",\n\t\"elevacion_maxima\":100,\n\t\"elevacion_minima\":0,\n\t\"departamentos\":\"Antioquia, Atlántico, Bolívar, Chocó, La Guajira, Magdalena, Nariño, San Andrés, Providencia y Santa Catalina, Sucre, Valle\",\n\t\"distribucion_global\":\"\\\"S Estados Unidos a Colombia, Venezuela, Guayanas, Ecuador, Perú, Brasil\",\n\t\"temperatura\":{\"min\":11,\"max\":28.5},\n\t\"presipitacion\":{\"min\":608,\"max\":2744}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/planta/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"{{id}}"
+							]
+						},
+						"description": "Actualiza la información de la planta con la información pasada en el cuerpo y a la que corresponda el identificador"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas las plantas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8facf728-bab8-438e-ac9e-f508db48af12",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta"
+							]
+						},
+						"description": "Obtiene la lista de todas las plantas registradas"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por query param",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ddec9d6d-b727-4748-89c0-c8ad0f781499",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta/f/tpe?temp=25&prec=2500&elevmin=0&elevmax=3000",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"f",
+								"tpe"
+							],
+							"query": [
+								{
+									"key": "temp",
+									"value": "25"
+								},
+								{
+									"key": "prec",
+									"value": "2500"
+								},
+								{
+									"key": "elevmin",
+									"value": "0"
+								},
+								{
+									"key": "elevmax",
+									"value": "3000"
+								}
+							]
+						},
+						"description": "Retorna aquellas plantas que tengan propiedades especificadas"
+					},
+					"response": []
+				},
+				{
+					"name": "obtener plantas por departamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8eec4018-ede6-4110-9ccd-260dc271a11a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Cantidad de 3\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length).to.eql(3);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta/departamento/Valle?num_pag=2&cantidad=3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"departamento",
+								"Valle"
+							],
+							"query": [
+								{
+									"key": "num_pag",
+									"value": "2"
+								},
+								{
+									"key": "cantidad",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Retorna la lista de todas las plantas que se puedan cultivar en el departamento"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener plantas por pagina",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc9bfeb7-d53f-4294-9ef6-04ab596e4730",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Cantidad de 3\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length).to.eql(3);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta/pagina/6/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"pagina",
+								"6",
+								"3"
+							]
+						},
+						"description": "Retorna la lista de las plantas de la pagina especificada y la contidad especificada"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar planta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d682c56-1396-4a02-8a01-fb99ac5f9f01",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.environment.unset(\"id\");",
+									"pm.environment.unset(\"nombre\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/planta/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"planta",
+								"{{id}}"
+							]
+						},
+						"description": "Elimina la planta de acuerdo al identificador especificado"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "departamentos",
+			"item": [
+				{
+					"name": "Crear departamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3dbf543c-8299-4cbd-a8c7-66d1eab25816",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.environment.set(\"id\", pm.response.json()._id);",
+									"pm.environment.set(\"nombre\", pm.response.json().nombre);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"nombre\",\n\t\"temperatura\": 27.9,\n\t\"presipitacion\": 3001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/departamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos"
+							]
+						},
+						"description": "Agrega una nueva plata con las caracteristicas de cultivo"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas los departamentos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b444c50-f6c7-4a09-91f9-d8df7b5075b2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/departamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos"
+							]
+						},
+						"description": "Obtiene la lista de todas las plantas registradas"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdebe44f-6e3f-4aad-9fd6-684c933384cd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.nombre).to.eql(pm.variables.get(\"nombre\"));",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/departamentos/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos",
+								"{{id}}"
+							]
+						},
+						"description": "Obtiene la información de la planta de acuerdo a su identificador"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por query param",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0037b3c2-84b0-4b1e-9942-3904a54218af",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/departamentos?nombre={{nombre}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "{{nombre}}"
+								}
+							]
+						},
+						"description": "Retorna aquellas plantas que tengan propiedades especificadas"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar departamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a65c7bc-5ae1-42e1-ab22-bdb03be368b1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.environment.set(\"nombre\", \"nombre2\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"nombre2\",\n\t\"temperatura\": 27.9,\n\t\"presipitacion\": 3001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/departamentos/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos",
+								"{{id}}"
+							]
+						},
+						"description": "Actualiza la información de la planta con la información pasada en el cuerpo y a la que corresponda el identificador"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por id modificada",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdebe44f-6e3f-4aad-9fd6-684c933384cd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.nombre).to.eql(pm.variables.get(\"nombre\"));",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/departamentos/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos",
+								"{{id}}"
+							]
+						},
+						"description": "Obtiene la información de la planta de acuerdo a su identificador"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar departamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c83d49a-78dc-40f5-9c54-288c97c4b186",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.environment.unset(\"id\");",
+									"pm.environment.unset(\"nombre\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/departamentos/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departamentos",
+								"{{id}}"
+							]
+						},
+						"description": "Elimina la planta de acuerdo al identificador especificado"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "150ace30-4372-40d7-b6fc-f39ab3366fdb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5c779b2-984c-492a-a65e-b72625f5a743",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,3 @@
+Permission is hereby granted, free of charge, to anyone who obtains a copy of this software and the associated documentation files (the "Software"), to operate the Software without restrictions, including, but not limited to, the rights of use, copy, modification and / or fusion copies of the Software, and allow the people to whom the Software is provided to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice will be included in all copies or substantial parts of the Software.
