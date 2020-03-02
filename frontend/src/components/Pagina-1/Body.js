@@ -12,7 +12,7 @@ export default class Body extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitDepto = this.handleSubmitDepto.bind(this);
     this.handleSubmitCond = this.handleSubmitCond.bind(this);
-    fetch("http://localhost:3000/departamentos")
+    fetch("/departamentos")
             .then(res => {
               return res.json();
             }).then(p => {
